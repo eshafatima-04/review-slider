@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body {
+            margin: 0;
+            display: flex;
+            justify-content: center;
+            height: 100vh;
+            align-items: center;
+            font-family: cursive;
+        }
+        .testimonial {
+            background-color: slateblue;
+            height: 100px;
+            width: 500px;
+            border-radius: 10px;
+            min-width: 400px;
+            padding: 70px 20px;
+            margin: 5px;
+            color: white;
+            box-shadow: 0 4px 8px rgb(0, 0, 0, 0.3);
+            position: relative;
+        }
+        img {
+            width: 100px;
+            height: 100px;
+            border-radius: 50%;
+            position: absolute;
+            background-size: cover;
+            object-fit: cover;
+            left: 50%;
+            transform: translateX(-50%);
+            top: -50px; /* Adjusted to position the image correctly */
+        }
+        .username {
+            font-size: 13px;
+            font-weight: 100;
+        }
+    </style>
+</head>
+<body>
+   <div class="testimonial">
+       <img src="istockphoto-1157741177-2048x2048.jpg" alt="Profile Picture">
+       <p class="text">I am constantly amazed by the quality of their products and the innovation they bring to the market. I can confidently say that Apple provides the best service and products in the industry. Thank you, Apple.</p>
+       <h4 class="username">Franklin</h4>
+   </div>
+   <script>
+       const testimonials = [
+           {
+               name: "Cherise G",
+               photoUrl: "https://images.unsplash.com/photo-1535713875002-d1d0cf377fde?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=MnwzNjUyOXwwfDF8c2VhcmNofDV8fHdvbWFufGVufDB8fHx8MTY0MzM3MTMzMw&ixlib=rb-1.2.1&q=80&w=1080",
+               text: "I have been a loyal customer of Apple for many years now and I must say, their service has never failed to impress me. From the moment I walk into their store, I am greeted with warm and friendly staff who are always willing to assist me with any questions or concerns I may have."
+           },
+           {
+               name: "Franklin",
+               photoUrl: " https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTV8fHBlcnNvbiUyMHNtaWxpbmclMjBmYWNlfGVufDB8fDB8fHww",
+               text: "I am constantly amazed by the quality of their products and the innovation they bring to the market. I can confidently say that Apple provides the best service and products in the industry. Thank you, Apple."
+           },
+           {
+               name: "Senan",
+               photoUrl: "https://images.unsplash.com/photo-1521146764736-56c929d59c83?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTB8fHBlcnNvbiUyMHNtaWxpbmclMjBmYWNlfGVufDB8fDB8fHww",
+               text: "I highly recommend Apple to anyone looking for top-notch quality and reliability in their technology. Thank you, Apple, for consistently delivering exceptional products."
+           }
+       ];
+       
+       const img1 = document.querySelector("img");
+       const text1 = document.querySelector(".text");
+       const username1 = document.querySelector(".username");
+
+       let idx = 0;
+
+       function testimonialUpdate() {
+           const { name, photoUrl, text } = testimonials[idx];
+           img1.src = photoUrl;
+           text1.innerText = text;
+           username1.innerText = name;
+           idx++;
+           if (idx >= testimonials.length) idx = 0; // Reset index when it exceeds the array length
+           setTimeout(testimonialUpdate, 2000);
+       }
+
+       testimonialUpdate();
+   </script>
+</body>
+</html>
